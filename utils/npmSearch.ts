@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const API_END_POINT = ' https://www.npmjs.com/search/suggestions';
-const SIZE = 5;
 
 async function npmSearch(keyword: string) {
     const result = await axios.get(API_END_POINT, {
