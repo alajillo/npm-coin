@@ -7,7 +7,7 @@ export default function Search() {
         () =>
             debounce((e: ChangeEvent<HTMLInputElement>) => {
                 search(e.target.value);
-            }, 400),
+            }, 200),
         [search]
     );
 
