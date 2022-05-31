@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useCallback, useState, useMemo } from 'react';
 import npmSearch from '../utils/npmSearch';
 import { debounce } from 'lodash-es';
+import axios from 'axios';
 export default function Search() {
     const [keyword, setKeyword] = useState('');
     const [list, setList] = useState([]);
@@ -10,9 +11,16 @@ export default function Search() {
             debounce(async (text: string) => {
                 if (text) {
                     setIsLoading(true);
-                    const result = await npmSearch(text);
+                    const result: any = await axios.get(
+                        'http://localhost:3000/api/search',
+                        {
+                            params: {
+                                keyword: text,
+                            },
+                        }
+                    );
                     setIsLoading(false);
-                    setList(result);
+                    setList(result.data);
                 }
             }, 300),
         []
@@ -34,9 +42,7 @@ export default function Search() {
             <input type="text" value={keyword} onInput={onInput} />
             <ul>
                 {!isLoading ? (
-                    list.map((item: any, key) => (
-                        <li key={key}>{item.package.name}</li>
-                    ))
+                    list.map((item: any, key) => <li key={key}>{item.name}</li>)
                 ) : (
                     <span>loading...</span>
                 )}
