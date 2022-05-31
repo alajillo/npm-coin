@@ -12,16 +12,25 @@ export default function Search() {
     );
 
     return (
-        <div>
+        <div className="flex flex-col mx-4 mt-4">
             <h1 className="text-3xl font-bold text-red-500 text-opacity-60">
-                Hello world!
+                Npm Search
             </h1>
-            <input type="text" onInput={onInput} />
+            <input
+                type="text"
+                onInput={onInput}
+                className="text-2xl mt-2 p-1"
+            />
             <ul>
                 {!isLoading ? (
-                    list.map((item: any, key) => <li key={key}>{item.name}</li>)
+                    list.map((item, key) => (
+                        <li key={key} className="flex flex-col my-2">
+                            <span className="text-xl">{item.name}</span>
+                            <span className="text-sm">{item.description}</span>
+                        </li>
+                    ))
                 ) : (
-                    <span>loading...</span>
+                    <span className="text-xl">loading...</span>
                 )}
             </ul>
         </div>
