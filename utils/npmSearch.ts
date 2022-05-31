@@ -1,10 +1,9 @@
 import axios from 'axios';
 
 const API_END_POINT = 'https://api.npms.io/v2/search';
-const SIZE = 3;
+const SIZE = 5;
 
 async function npmSearch(keyword: string) {
-    if (!keyword.length) return;
     const result = await axios.get(API_END_POINT, {
         params: {
             q: `${keyword}`,
