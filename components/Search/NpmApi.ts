@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { PackageInfo } from './type';
-const API_END_POINT = 'http://localhost:3000/api/';
+const API_END_POINT = 'http://localhost:3000/api';
 class NpmApi {
     private static API_END_POINT = API_END_POINT;
     constructor() {}
