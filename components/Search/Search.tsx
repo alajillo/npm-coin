@@ -6,7 +6,9 @@ import SuggestionList from './SuggestionList/SuggestionList';
 import SearchDetail from './SearchDetail/SearchDetail';
 export default function Search() {
     const { list, search, isLoading } = useSearch();
-    const { selectedIndex, onKeyDown, setSelectIndex } = useMoveSelect();
+    const { selectedIndex, onKeyDown, setSelectIndex } = useMoveSelect(
+        list.length - 1
+    );
     const onInput = useMemo(
         () =>
             debounce((e: ChangeEvent<HTMLInputElement>) => {
@@ -29,16 +31,18 @@ export default function Search() {
                     onInput={onInput}
                     className="text-2xl w-full"
                 />
-                <SuggestionList
-                    selectedIndex={selectedIndex}
-                    isLoading={isLoading}
-                    list={list}
-                    onSelect={(index: number) => setSelectIndex(index)}
-                />
+                {!!list.length && (
+                    <SuggestionList
+                        selectedIndex={selectedIndex}
+                        isLoading={isLoading}
+                        list={list}
+                        onSelect={(index: number) => setSelectIndex(index)}
+                    />
+                )}
             </div>
             <SearchDetail
                 packageName={
-                    selectedIndex !== -1 ? list[selectedIndex].name : ''
+                    list[selectedIndex] ? list[selectedIndex].name : ''
                 }
             />
         </div>

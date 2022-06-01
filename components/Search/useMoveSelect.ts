@@ -1,22 +1,17 @@
 import { useCallback, useState } from 'react';
-function useMoveSelect() {
+function useMoveSelect(limit: number) {
     const [selectedIndex, setSelectIndex] = useState<number>(-1);
     const onKeyDown = useCallback(
         (event: React.KeyboardEvent<HTMLDivElement>) => {
             const { code } = event;
             if (code === 'ArrowDown') {
-                setSelectIndex((v) => v + 1);
+                setSelectIndex((v) => (v !== limit ? v + 1 : limit));
             }
             if (code === 'ArrowUp') {
-                setSelectIndex((v) => {
-                    if (v !== -1) {
-                        return v - 1;
-                    }
-                    return -1;
-                });
+                setSelectIndex((v) => (v !== -1 ? v - 1 : -1));
             }
         },
-        [setSelectIndex]
+        [setSelectIndex, limit]
     );
     return { selectedIndex, onKeyDown, setSelectIndex };
 }

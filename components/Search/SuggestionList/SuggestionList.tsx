@@ -11,11 +11,14 @@ function SuggestionList({
     onSelect: (key: number) => void;
 }) {
     return (
-        <ul className=" bg-white overscroll-none overflow-auto w-11/12 p-2">
+        <ul className=" bg-lime-200 overscroll-none overflow-auto w-11/12 p-2">
             {!isLoading ? (
                 list.map((item, key) => (
                     <li
-                        onClick={() => onSelect(key)}
+                        onClick={(e) => {
+                            console.log(e.target);
+                            onSelect(key);
+                        }}
                         key={key}
                         className={`flex flex-col mb-2 ${
                             key === selectedIndex ? 'bg-gray-200' : ''
