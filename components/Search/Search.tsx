@@ -1,8 +1,12 @@
 import { ChangeEvent, useMemo } from 'react';
 import useSearch from '@Search/useSearch';
+import useMoveSelect from './useMoveSelect';
 import { debounce } from 'lodash-es';
+import SuggestionList from './SuggestionList/SuggestionList';
+import SearchDetail from './SearchDetail/SearchDetail';
 export default function Search() {
     const { list, search, isLoading } = useSearch();
+    const { selectedIndex, onKeyDown, setSelectIndex } = useMoveSelect();
     const onInput = useMemo(
         () =>
             debounce((e: ChangeEvent<HTMLInputElement>) => {
@@ -12,27 +16,31 @@ export default function Search() {
     );
 
     return (
-        <div className="flex flex-col mx-4 mt-4">
-            <h1 className="text-3xl font-bold text-red-500 text-opacity-60">
+        <div className="flex flex-col w-screen h-screen p-4">
+            <h1 className="text-3xl font-bold text-red-500 text-opacity-60 mb-2">
                 Npm Search
             </h1>
-            <input
-                type="text"
-                onInput={onInput}
-                className="text-2xl mt-2 p-1"
+            <div
+                className="relative flex-grow overflow-hidden flex flex-col items-center"
+                onKeyDown={onKeyDown}
+            >
+                <input
+                    type="text"
+                    onInput={onInput}
+                    className="text-2xl w-full"
+                />
+                <SuggestionList
+                    selectedIndex={selectedIndex}
+                    isLoading={isLoading}
+                    list={list}
+                    onSelect={(index: number) => setSelectIndex(index)}
+                />
+            </div>
+            <SearchDetail
+                packageName={
+                    selectedIndex !== -1 ? list[selectedIndex].name : ''
+                }
             />
-            <ul>
-                {!isLoading ? (
-                    list.map((item, key) => (
-                        <li key={key} className="flex flex-col my-2">
-                            <span className="text-xl">{item.name}</span>
-                            <span className="text-sm">{item.description}</span>
-                        </li>
-                    ))
-                ) : (
-                    <span className="text-xl">loading...</span>
-                )}
-            </ul>
         </div>
     );
 }
