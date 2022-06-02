@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { PackageInfo } from './type';
-const API_END_POINT = process.env.LOCAL || process.env.NEXT_PUBLIC_VERCEL_URL;
+const API_END_POINT = process.env.LOCAL || 'https://npm-coin.vercel.app';
 
 class NpmApi {
     private static API_END_POINT = API_END_POINT;
