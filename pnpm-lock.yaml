@@ -11,6 +11,7 @@ specifiers:
   '@types/react-dom': 18.0.5
   autoprefixer: ^10.4.7
   axios: ^0.27.2
+  dotenv: ^16.0.1
   eslint: 8.16.0
   eslint-config-next: 12.1.6
   husky: ^8.0.0
@@ -29,6 +30,7 @@ dependencies:
   '@testing-library/react-hooks': 8.0.0_71dc17fa2f93091b2e1d43ec53f70836
   '@types/lodash-es': 4.17.6
   axios: 0.27.2
+  dotenv: 16.0.1
   lodash-es: 4.17.21
   next: 12.1.6_react-dom@18.1.0+react@18.1.0
   react: 18.1.0
@@ -1776,6 +1778,11 @@ packages:
     dependencies:
       webidl-conversions: 7.0.0
     dev: true
+
+  /dotenv/16.0.1:
+    resolution: {integrity: sha512-1K6hR6wtk2FviQ4kEiSjFiH5rpzEVi8WW0x96aztHVMhEspNpc4DVOUTEHtEva5VThQ8IaBX1Pe4gSzpVVUsKQ==}
+    engines: {node: '>=12'}
+    dev: false
 
   /electron-to-chromium/1.4.142:
     resolution: {integrity: sha512-ea8Q1YX0JRp4GylOmX4gFHIizi0j9GfRW4EkaHnkZp0agRCBB4ZGeCv17IEzIvBkiYVwfoKVhKZJbTfqCRdQdg==}
