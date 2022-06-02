@@ -1,6 +1,8 @@
 import useMoveSelect from '@Search/useMoveSelect';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
+import dotenv from 'dotenv';
+dotenv.config();
 test('useMoveSelect keyDown event testing', () => {
     const { result } = renderHook(() => useMoveSelect(5));
     render(
