@@ -1,16 +1,12 @@
 import React from 'react';
 import useSlotItem from './useSlotItem';
 interface SlotItemProps {
-    name: string;
+    duration: number;
+    targetNumber: number;
 }
-function SlotItem({ name }: SlotItemProps) {
-    const canvas = useSlotItem();
-    return (
-        <>
-            <h1>{name}</h1>
-            <canvas ref={canvas} className="w-28 h-28"></canvas>
-        </>
-    );
+function SlotItem({ duration, targetNumber }: SlotItemProps) {
+    const canvas = useSlotItem(duration, targetNumber);
+    return <canvas ref={canvas} className="w-20 h-28 p-0"></canvas>;
 }
 
 export default SlotItem;
