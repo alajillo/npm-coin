@@ -2,8 +2,8 @@ import { ChangeEvent, useMemo } from 'react';
 import useSearch from '@Search/useSearch';
 import useMoveSelect from './useMoveSelect';
 import { debounce } from 'lodash-es';
-import SuggestionList from './SuggestionList/SuggestionList';
-import SearchDetail from './SearchDetail/SearchDetail';
+import SuggestionList from '../SuggestionList/SuggestionList';
+import SearchDetail from '../SearchDetail/SearchDetail';
 export default function Search() {
     const { list, search, isLoading } = useSearch();
     const { selectedIndex, onKeyDown, setSelectIndex } = useMoveSelect(
@@ -40,11 +40,13 @@ export default function Search() {
                     />
                 )}
             </div>
-            <SearchDetail
-                packageName={
-                    list[selectedIndex] ? list[selectedIndex].name : ''
-                }
-            />
+            {selectedIndex !== -1 && (
+                <SearchDetail
+                    packageName={
+                        list[selectedIndex] ? list[selectedIndex].name : ''
+                    }
+                />
+            )}
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import { PackageInfo } from '../types/type';
+import { PackageInfo } from '../Search/types/type';
 function SuggestionList({
     isLoading,
     list,

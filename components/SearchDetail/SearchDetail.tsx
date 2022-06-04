@@ -4,7 +4,7 @@ function SearchDetail({ packageName }: { packageName: string }) {
     const packageInfo = useDetail(packageName);
     return (
         <div>
-            <h2>{packageName}</h2>
+            <h1 className="text-3xl">{packageName}</h1>
             <Slot count={Number(packageInfo.downloads)} />
         </div>
     );
