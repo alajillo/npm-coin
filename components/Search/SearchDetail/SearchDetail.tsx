@@ -1,5 +1,5 @@
 import useDetail from './useDetail';
-import Slot from 'components/Slot';
+import Slot from 'components/Slot/Slot';
 function SearchDetail({ packageName }: { packageName: string }) {
     const packageInfo = useDetail(packageName);
     return (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import getPackageInfo from './getPackageInfo';
+import getPackageInfo from '../utils/getPackageInfo';
 type PackageInfo = {
     downloads: number | string;
 };

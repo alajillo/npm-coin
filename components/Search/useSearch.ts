@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
-import NpmApi from '@Search/NpmApi';
-import { PackageInfo } from './type';
+import NpmApi from '@Search/utils/NpmApi';
+import { PackageInfo } from './types/type';
 function useSearch() {
     const [list, setList] = useState<PackageInfo[]>([]);
     const [isLoading, setIsLoading] = useState(false);
