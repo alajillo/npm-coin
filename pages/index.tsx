@@ -1,5 +1,12 @@
-import Search from '@Search/Search';
-
+import SuggestionList from '@components/SuggestionList';
+import PackageDetail from '@components/PackageDetail';
+import Slot from '@components/Slot';
 export default function Home() {
-    return <Search />;
+    return (
+        <>
+            <SuggestionList />
+            <PackageDetail />
+            <Slot count={78123} />
+        </>
+    );
 }

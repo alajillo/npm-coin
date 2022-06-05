@@ -1,4 +1,4 @@
-import SlotItem from '../SlotItem/SlotItem';
+import SlotItem from './SlotItem';
 
 function Slot({ count }: { count: number }) {
     const countArray: string[] = String(count).split('');

@@ -1,5 +1,5 @@
-import { PackageInfo } from '../Search/types/type';
-function SuggestionList({
+import { PackageInfo } from 'types/package';
+function SuggestionListView({
     isLoading,
     list,
     selectedIndex,
@@ -15,8 +15,7 @@ function SuggestionList({
             {!isLoading ? (
                 list.map((item, key) => (
                     <li
-                        onClick={(e) => {
-                            console.log(e.target);
+                        onClick={() => {
                             onSelect(key);
                         }}
                         key={key}
@@ -35,4 +34,4 @@ function SuggestionList({
     );
 }
 
-export default SuggestionList;
+export default SuggestionListView;

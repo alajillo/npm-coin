@@ -16,7 +16,9 @@
         "jsx": "preserve",
         "incremental": true,
         "paths": {
-            "@Search/*": ["components/Search/*"]
+            "@components/*": ["components/*"],
+            "@api/*": ["api/*"],
+            "@hooks/*": ["hooks/*"]
         }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
