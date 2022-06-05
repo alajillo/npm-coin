@@ -6,7 +6,7 @@ export default function Home() {
         <>
             <SuggestionList />
             <PackageDetail />
-            <Slot count={78123} />
+            <Slot count={78123} duration={1} />
         </>
     );
 }

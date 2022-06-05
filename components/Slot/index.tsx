@@ -2,9 +2,10 @@ import SlotItem from './SlotItem';
 
 type SlotProps = {
     count: number;
+    duration: number;
 };
 
-function Slot({ count }: SlotProps) {
+function Slot({ count, duration }: SlotProps) {
     const countArray: string[] = String(count).split('');
 
     return (
@@ -13,7 +14,9 @@ function Slot({ count }: SlotProps) {
                 <SlotItem
                     key={key}
                     targetNumber={Number(value)}
-                    duration={(key + 1) * 1.5}
+                    duration={(key + 1) * duration}
+                    size={10}
+                    textColor="#38bdf8"
                 />
             ))}
         </div>
