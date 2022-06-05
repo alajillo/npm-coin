@@ -1,15 +1,17 @@
 import { PackageInfo } from 'types/package';
+
+type SuggestionListViewProps = {
+    isLoading: boolean;
+    list: PackageInfo[];
+    selectedIndex: number;
+    onSelect: (key: number) => void;
+};
 function SuggestionListView({
     isLoading,
     list,
     selectedIndex,
     onSelect,
-}: {
-    isLoading: boolean;
-    list: PackageInfo[];
-    selectedIndex: number;
-    onSelect: (key: number) => void;
-}) {
+}: SuggestionListViewProps) {
     return (
         <ul className=" bg-lime-200 overscroll-none overflow-auto w-11/12 p-2">
             {!isLoading ? (

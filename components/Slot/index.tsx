@@ -1,6 +1,10 @@
 import SlotItem from './SlotItem';
 
-function Slot({ count }: { count: number }) {
+type SlotProps = {
+    count: number;
+};
+
+function Slot({ count }: SlotProps) {
     const countArray: string[] = String(count).split('');
 
     return (
