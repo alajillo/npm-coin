@@ -5,7 +5,22 @@ module.exports = {
         './stories/**/*.{js,ts,jsx,tsx}',
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                primary: {
+                    light: '#5b21b6',
+                    dark: '',
+                },
+                secondary: {
+                    light: '#ede9fe',
+                    dark: '',
+                },
+                text: {
+                    light: '#374151',
+                    dark: '',
+                },
+            },
+        },
     },
     plugins: [],
 };

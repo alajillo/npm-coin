@@ -1,12 +1,20 @@
 import SuggestionList from '@components/SuggestionList';
-import PackageDetail from '@components/PackageDetail';
-import Slot from '@components/Slot';
+import React, { useState } from 'react';
 export default function Home() {
+    const [keyword, setKeyword] = useState('1234');
+    const handleInput: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+        const nextText = e.target.value;
+        setKeyword(nextText);
+    };
     return (
         <>
-            <SuggestionList />
-            <PackageDetail />
-            <Slot count={78123} duration={1} />
+            <input
+                className="w-1/2 h-1/2"
+                type="text"
+                value={keyword}
+                onChange={handleInput}
+            />
+            <SuggestionList keyword={keyword} />
         </>
     );
 }

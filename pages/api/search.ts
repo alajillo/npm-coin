@@ -12,15 +12,15 @@ async function getNpmSuggestion(keyword: string) {
     return result.data;
 }
 
-async function responseNpmSearch(res: NextApiResponse<any>, keyword: string) {
-    const result = await getNpmSuggestion(keyword);
-    res.status(200).json(result);
-}
-
-export default function handler(
+export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<any>
 ) {
-    const keyword = req.query.keyword as string;
-    responseNpmSearch(res, keyword);
+    try {
+        const keyword = req.query.keyword as string;
+        const result = await getNpmSuggestion(keyword);
+        res.status(200).json(result);
+    } catch (e) {
+        res.status(200).json([]);
+    }
 }

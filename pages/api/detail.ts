@@ -8,18 +8,15 @@ async function getNpmDetail(packageName: string) {
     return result.data;
 }
 
-async function responseNpmdetail(
-    res: NextApiResponse<any>,
-    packageName: string
-) {
-    const result = await getNpmDetail(packageName);
-    res.status(200).json(result);
-}
-
-export default function handler(
+export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<any>
 ) {
-    const packageName = req.query.packageName as string;
-    responseNpmdetail(res, packageName);
+    try {
+        const packageName = req.query.packageName as string;
+        const result = await getNpmDetail(packageName);
+        res.status(200).json(result);
+    } catch (e) {
+        res.status(200).json({});
+    }
 }

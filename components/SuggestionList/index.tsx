@@ -1,28 +1,19 @@
-import { PackageInfo } from 'types/package';
+import useSuggestion from '@hooks/useSuggestion';
 import SuggestionListView from './view';
-const dummypackageInfoList: PackageInfo[] = [
-    {
-        name: 'dummy',
-        description: 'dummy description',
-    },
-    {
-        name: 'dummy',
-        description: 'dummy description',
-    },
-    {
-        name: 'dummy',
-        description: 'dummy description',
-    },
-];
-function SuggestionList() {
+import React from 'react';
+type SuggestionListProps = {
+    keyword: string;
+};
+const SuggestionList = ({ keyword }: SuggestionListProps) => {
+    const { suggestionList, isLoading } = useSuggestion(keyword);
     return (
         <SuggestionListView
-            isLoading={false}
-            list={dummypackageInfoList}
+            isLoading={isLoading}
+            list={suggestionList}
             selectedIndex={0}
             onSelect={(key: number) => console.log(key)}
         />
     );
-}
+};
 
-export default SuggestionList;
+export default React.memo(SuggestionList);
