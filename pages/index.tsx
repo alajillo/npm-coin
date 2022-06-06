@@ -1,7 +1,7 @@
 import SuggestionList from '@components/SuggestionList';
 import React, { useState } from 'react';
 export default function Home() {
-    const [keyword, setKeyword] = useState('1234');
+    const [keyword, setKeyword] = useState('');
     const handleInput: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         const nextText = e.target.value;
         setKeyword(nextText);

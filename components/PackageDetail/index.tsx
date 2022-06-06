@@ -1,9 +1,14 @@
 import PackageDetailView from './view';
-function PackageDetail() {
+import useCount from '@hooks/useCount';
+type PackageDetailProps = {
+    packageName: string;
+};
+function PackageDetail({ packageName }: PackageDetailProps) {
+    const packageDownloads = useCount(packageName)!;
     return (
         <PackageDetailView
-            packageName={'패키지 이름'}
-            packageDownloads={123456}
+            packageName={packageName}
+            packageDownloads={packageDownloads?.downloads}
         />
     );
 }
