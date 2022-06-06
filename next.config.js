@@ -5,7 +5,7 @@ const nextConfig = {
     env: {
         API_END_POINT:
             process.env.VERCEL_ENV === 'production'
-                ? process.env.VERCEL_URL
+                ? process.env.PRD_URL
                 : 'http://localhost:3000/',
     },
 };
