@@ -13,7 +13,7 @@ function SuggestionListView({
     onSelect,
 }: SuggestionListViewProps) {
     return (
-        <ul className=" bg-blue-300 overscroll-none overflow-auto w-11/12 p-2">
+        <ul className=" bg-blue-300 overscroll-none overflow-auto w-11/12 p-2 relative">
             {!isLoading ? (
                 list.map((item, key) => (
                     <li

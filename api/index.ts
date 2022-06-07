@@ -15,7 +15,7 @@ class Api {
     }
     public static async getNpmCount(packageName: string) {
         const packageInfo = await axios.get<PackageCount>(
-            `${this.API_END_POINT}/api/detail`,
+            `${this.API_END_POINT}api/count`,
             {
                 params: {
                     packageName,

@@ -1,4 +1,5 @@
 import SuggestionList from '@components/SuggestionList';
+import PackageDetail from '@components/PackageDetail';
 import React, { useState } from 'react';
 export default function Home() {
     const [keyword, setKeyword] = useState('');
@@ -7,7 +8,7 @@ export default function Home() {
         setKeyword(nextText);
     };
     return (
-        <>
+        <div className="flex flex-col">
             <input
                 className="w-1/2 h-1/2"
                 type="text"
@@ -15,6 +16,7 @@ export default function Home() {
                 onChange={handleInput}
             />
             <SuggestionList keyword={keyword} />
-        </>
+            <PackageDetail packageName="react" />
+        </div>
     );
 }

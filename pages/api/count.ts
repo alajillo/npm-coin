@@ -5,7 +5,7 @@ const API_END_POINT = 'https://api.npmjs.org/downloads/point/last-day';
 
 async function getNpmCount(packageName: string) {
     const result = await axios.get(`${API_END_POINT}/${packageName}`);
-    return result.data.result;
+    return result.data;
 }
 
 export default async function handler(
