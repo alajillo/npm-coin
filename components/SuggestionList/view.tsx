@@ -13,7 +13,7 @@ function SuggestionListView({
     onSelect,
 }: SuggestionListViewProps) {
     return (
-        <ul className=" bg-blue-300 overscroll-none overflow-auto w-11/12 p-2 fixed top-5">
+        <ul className=" bg-violet-200 overflow-y-scroll w-full p-2 fixed top-8 rounded">
             {!isLoading ? (
                 list.map((item, key) => (
                     <li
@@ -22,8 +22,8 @@ function SuggestionListView({
                         }}
                         key={key}
                         className={`
-                        flex flex-col mb-2 hover:bg-gray-100 p-2
-                         ${key === selectedIndex ? 'bg-gray-100' : ''}
+                        flex flex-col mb-2 hover:bg-violet-50 p-2 rounded
+                         ${key === selectedIndex ? 'bg-violet-50' : ''}
                          `}
                     >
                         <span className="text-xl">{item.name}</span>

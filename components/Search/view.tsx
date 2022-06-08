@@ -7,9 +7,9 @@ type SearchViewProps = {
 };
 export default function SearchView({ keyword, handleInput }: SearchViewProps) {
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full h-full p-0">
             <input
-                className="w-1/2 h-1/2"
+                className="border-violet-400 border-2 rounded outline-violet-400 text-lg px-2"
                 type="text"
                 value={keyword}
                 onChange={handleInput}
