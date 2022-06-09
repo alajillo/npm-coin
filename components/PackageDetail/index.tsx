@@ -1,5 +1,6 @@
 import PackageDetailView from './view';
 import useCount from '@hooks/useCount';
+import { store } from '@components/Search/store';
 type PackageDetailProps = {
     packageName: string;
 };
