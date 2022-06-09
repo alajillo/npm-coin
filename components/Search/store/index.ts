@@ -1,20 +1,25 @@
-import { createStore } from 'redux';
-
+import { createStore, Reducer } from 'redux';
 type actionType = {
     type: string;
     keyword: string;
 };
+type stateType = {
+    keyword: string;
+};
 
-function searchReducer(state: any, action: actionType) {
+const searchReducer: Reducer<stateType, actionType> = (
+    state: stateType = { keyword: '' },
+    action: actionType
+) => {
     switch (action.type) {
         case 'SET_KETWORD':
             return { keyword: action.keyword };
         default:
             return state;
     }
-}
+};
 
-export const store = createStore(searchReducer, { keyword: '' });
+export const store = createStore(searchReducer);
 
 export const setKeyword = (keyword: string) => {
     store.dispatch({
