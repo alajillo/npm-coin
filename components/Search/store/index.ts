@@ -1,29 +1,20 @@
-import { createStore, Reducer } from 'redux';
-type actionType = {
-    type: string;
-    keyword: string;
-};
-type stateType = {
-    keyword: string;
-};
+import { createSlice, configureStore } from '@reduxjs/toolkit';
 
-const searchReducer: Reducer<stateType, actionType> = (
-    state: stateType = { keyword: '' },
-    action: actionType
-) => {
-    switch (action.type) {
-        case 'SET_KETWORD':
-            return { keyword: action.keyword };
-        default:
-            return state;
-    }
-};
+const packageSlice = createSlice({
+	name : 'package',
+	initialValue : {
+		value : ''
+	},
+	reducer : {
+		changePackage : (state, action) => {
+			state.value = action.value;
+		}
+	}
+});
 
-export const store = createStore(searchReducer);
+const store = configureStore({
+	reducer : packageSlice.reducer
+});
 
-export const setKeyword = (keyword: string) => {
-    store.dispatch({
-        type: 'SET_KEYWORD',
-        keyword,
-    });
-};
+export default store;
+

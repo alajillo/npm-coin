@@ -3,11 +3,11 @@ import useSearch from '@hooks/useSearch';
 import { Provider } from 'react-redux';
 import { store } from './store';
 function Search() {
-    const { keyword, handleInput } = useSearch();
+    const { packageName, handleInput } = useSearch();
     return (
         <>
             <Provider store={store}>
-                <SearchView keyword={keyword} handleInput={handleInput} />
+                <SearchView keyword={packageName} handleInput={handleInput} />
             </Provider>
         </>
     );

@@ -1,14 +1,15 @@
 import { useCallback, useState } from 'react';
+import store from '../components/Search/store';
 const useSearch = () => {
-    const [keyword, setKeyword] = useState('');
-    const handleInput: React.ChangeEventHandler<HTMLInputElement> = useCallback(
+	const packageName = store.getState();
+	const handleInput: React.ChangeEventHandler<HTMLInputElement> = useCallback(
         (e) => {
             const nextText = e.target.value;
-            setKeyword(nextText);
+			store.dispatch('changePackage',{value : nextText });
         },
-        [setKeyword]
+        [store]
     );
-    return { keyword, handleInput };
+    return { packageName, handleInput };
 };
 
 export default useSearch;
