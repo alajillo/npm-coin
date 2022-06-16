@@ -3,15 +3,21 @@ type PackageDetailViewProps = {
     packageDownloads: number;
 };
 function PackageDetailView({
-    packageName,
-    packageDownloads,
+  packageName,
+  packageDownloads,
 }: PackageDetailViewProps) {
-    return (
-        <div>
-            <h1>이름 : {packageName}</h1>
-            <p> 다운로드 수 : {packageDownloads}</p>
-        </div>
-    );
+  return (
+    <div>
+      <h1>
+        이름 :
+        {packageName}
+      </h1>
+      <p>
+        다운로드 수 :
+        {packageDownloads}
+      </p>
+    </div>
+  );
 }
 
 export default PackageDetailView;
