@@ -1,4 +1,4 @@
-import useSuggestion from '@hooks/useSuggestion';
+import useSuggestion from './useSuggestion';
 import SuggestionListView from './view';
 import React from 'react';
 type SuggestionListProps = {

@@ -1,4 +1,4 @@
-import useCount from '@hooks/useCount';
+import useCount from './useCount';
 import { store } from '@components/Search/store';
 import PackageDetailView from './View';
 

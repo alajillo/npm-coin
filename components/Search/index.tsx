@@ -1,5 +1,5 @@
 import SearchView from './view';
-import useSearch from '@hooks/useSearch';
+import useSearch from './useSearch';
 import { Provider } from 'react-redux';
 import { store } from './store';
 function Search() {

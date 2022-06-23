@@ -1,5 +1,5 @@
 import React from 'react';
-import useSlotItem from '@hooks/useSlotItem';
+import useSlotItem from './useSlotItem';
 
 type SlotItemProps = {
     duration: number;
