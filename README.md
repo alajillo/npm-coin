@@ -1,1 +1,1 @@
-coin based npm daily downloads
+coin based npm daily downloads.
